@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CONFIG = {
     advisorName: "Kiran Hiralal Popat",
     brandTitle: "Insurance Under One Roof",
-    professionalLabel: "Insurance Advisor",
+    professionalLabel: "Insurance Expert",
     experienceYears: "19 Years of Experience",
     phoneDisplay: "+91 98200 59982",
     phoneClean: "9820059982",
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ctx.fillStyle = '#d4af37';
       ctx.font = '600 18px sans-serif';
-      ctx.fillText(`${CONFIG.brandTitle} • ${CONFIG.experienceYears}`, exportSize / 2, 80);
+      ctx.fillText(`${CONFIG.brandTitle} • Insurance Expert`, exportSize / 2, 80);
 
       // 4. White card backing for QR
       const qrBoxSize = 420;
@@ -327,8 +327,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalShareWhatsapp) {
     modalShareWhatsapp.addEventListener('click', () => {
       const msg = encodeURIComponent(
-        `*🛡️ Kiran Hiralal Popat - Insurance Advisor*\n` +
-        `*${CONFIG.brandTitle}* (19 Years of Experience)\n\n` +
+        `*🛡️ Kiran Hiralal Popat - Insurance Expert*\n` +
+        `*${CONFIG.brandTitle}*\n\n` +
         `_"Your Sachha Advisor" for Life, Health & General Insurance._\n\n` +
         `👉 *Tap to view Digital Card & Save Contact:*\n${activeUrl}`
       );
@@ -340,9 +340,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalShareEmail = document.getElementById('modalShareEmail');
   if (modalShareEmail) {
     modalShareEmail.addEventListener('click', () => {
-      const subject = encodeURIComponent(`${CONFIG.advisorName} - Insurance Advisor Digital Card`);
+      const subject = encodeURIComponent(`${CONFIG.advisorName} - Insurance Expert Digital Card`);
       const body = encodeURIComponent(
-        `Hi,\n\nPlease find the digital card and insurance profile for Kiran Hiralal Popat (Insurance Under One Roof - 19 Years of Experience):\n\n${activeUrl}\n\nPhone: ${CONFIG.phoneDisplay}\nEmail: ${CONFIG.email}\n"Your Sachha Advisor"`
+        `Hi,\n\nPlease find the digital card and insurance profile for Kiran Hiralal Popat (Insurance Under One Roof - Insurance Expert):\n\n${activeUrl}\n\nPhone: ${CONFIG.phoneDisplay}\nEmail: ${CONFIG.email}\n"Your Sachha Advisor"`
       );
       window.location.href = `mailto:?subject=${subject}&body=${body}`;
       closeShareModalPopup();
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalShareSms) {
     modalShareSms.addEventListener('click', () => {
       const text = encodeURIComponent(
-        `Kiran Hiralal Popat - Insurance Advisor (19 Yrs Exp). Life, Health & General Insurance. View digital card & save contact: ${activeUrl}`
+        `Kiran Hiralal Popat - Insurance Expert. Life, Health & General Insurance. View digital card & save contact: ${activeUrl}`
       );
       window.location.href = `sms:?body=${text}`;
       closeShareModalPopup();
@@ -389,8 +389,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cleanNum.length === 10) {
         const targetNumber = '91' + cleanNum;
         const msg = encodeURIComponent(
-          `*🛡️ Kiran Hiralal Popat - Insurance Advisor*\n` +
-          `*${CONFIG.brandTitle}* (19 Years of Experience)\n\n` +
+          `*🛡️ Kiran Hiralal Popat - Insurance Expert*\n` +
+          `*${CONFIG.brandTitle}*\n\n` +
           `_"Money when you are there. Money when you are not there. Money when you need it."_\n` +
           `*Your Sachha Advisor*\n\n` +
           `📋 *Services Under One Roof:*\n` +

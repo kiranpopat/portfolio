@@ -1,6 +1,6 @@
 # Kiran Hiralal Popat - Digital Business Card & Insurance Portfolio
 
-A modern, mobile-first, high-converting **Digital Business Card & Professional Portfolio Website** designed specifically for **Kiran Hiralal Popat** (Insurance Advisor • 19 Years of Experience).
+A modern, mobile-first, high-converting **Digital Business Card & Professional Portfolio Website** designed specifically for **Kiran Hiralal Popat** (Insurance Expert & Advisor • Insurance Under One Roof).
 
 ---
 
@@ -16,13 +16,13 @@ A modern, mobile-first, high-converting **Digital Business Card & Professional P
 
 1. **Digital Smart Business Card Hero**:
    - Executive portrait frame with gold pulse glow and verified badge.
+   - **Insurance Expert** highlight badges.
    - Prominent Quick Actions: **Call Now**, **WhatsApp**, **Save Contact**, and **Share Profile**.
-   - 19+ Years of Experience highlight badge.
    - Quick channels: Direct Email, Facebook, and Phone.
 
 2. **Section-Wise Tab Architecture (Inspired by Manasi Polyclinic Functionality)**:
    - **Tab 1: QR**: Instant high-resolution scannable QR code to view profile & download contact, with direct WhatsApp forwarder.
-   - **Tab 2: About**: 19+ Years Experience highlight counter and advisory pillars.
+   - **Tab 2: About**: Professional Insurance Expert background, tailored advice, and 3 advisory pillars.
    - **Tab 3: Life**: 5 Life Insurance services with the prominent *"Your Sachha Advisor."* highlight.
    - **Tab 4: Health**: 7 Healthcare policies with *"Doctor saves your life. I save your lifestyle."*
    - **Tab 5: General**: Two-Wheeler & Four-Wheeler vehicle protection plans.
