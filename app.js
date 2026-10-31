@@ -545,44 +545,39 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.textAlign = 'center';
       ctx.fillText('Digital Visiting Card • Save to Gallery', rightX + 130, contactStartY + 218);
 
-      // 5. Trigger Save / Download Image
-      cardCanvas.toBlob(async (blob) => {
-        if (!blob) {
-          showToast('Could not generate visiting card.');
-          return;
-        }
+      // 5. Direct Instant Download of Visiting Card (.png)
+      const fileName = 'Kiran_Hiralal_Popat_Visiting_Card.png';
 
-        const fileName = 'Kiran_Hiralal_Popat_Visiting_Card.png';
-        const file = new File([blob], fileName, { type: 'image/png' });
-
-        // If Web Share API with files is supported (e.g. iPhone Safari / Android Chrome)
-        // User can tap "Save Image" to write directly to Photos / Gallery!
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          try {
-            await navigator.share({
-              files: [file],
-              title: 'Kiran Hiralal Popat - Visiting Card',
-              text: 'Kiran Hiralal Popat - Insurance Expert (Insurance Under One Roof)'
-            });
-            showToast('Visiting Card opened! Tap "Save Image" to store in Photos/Gallery.');
-            return;
-          } catch (err) {
-            // User cancelled share sheet or fallback to direct download
-          }
-        }
-
-        // Automatic Download fallback (Direct save to Downloads / Photos)
-        const blobUrl = URL.createObjectURL(blob);
+      try {
+        const dataUrl = cardCanvas.toDataURL('image/png');
         const link = document.createElement('a');
-        link.href = blobUrl;
+        link.href = dataUrl;
         link.download = fileName;
+        link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-
-        setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
-        showToast('Visiting Card saved! Stored in your Gallery / Downloads.');
-      }, 'image/png', 0.95);
+        showToast('Visiting Card downloaded successfully!');
+      } catch (err) {
+        cardCanvas.toBlob((blob) => {
+          if (!blob) {
+            showToast('Unable to export visiting card image.');
+            return;
+          }
+          const blobUrl = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = blobUrl;
+          link.download = fileName;
+          link.style.display = 'none';
+          document.body.appendChild(link);
+          link.click();
+          setTimeout(() => {
+            document.body.removeChild(link);
+            URL.revokeObjectURL(blobUrl);
+          }, 1500);
+          showToast('Visiting Card downloaded successfully!');
+        }, 'image/png');
+      }
 
     } catch (err) {
       console.error('Error generating visiting card:', err);

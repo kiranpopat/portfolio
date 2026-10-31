@@ -40,12 +40,12 @@ A modern, mobile-first, high-converting **Digital Business Card & Professional P
    - Email: `kiranp111@yahoo.in`
    - Configurable Facebook link
    - Save Contact (.vcf) button
-   - Save Visiting Card to Gallery (.png) button
+   - Download Visiting Card (.png) button
 
-7. **Save Visiting Card to Gallery (.png)**:
-   - High-resolution (1200 x 680) executive digital visiting card generated dynamically on HTML5 canvas.
+7. **Download Visiting Card (.png)**:
+   - One-click instant download of a high-resolution ($1200 \times 680\text{px}$) executive digital visiting card image.
    - Includes Kiran Popat's portrait, designation, contact numbers, email, services summary, and scannable QR code.
-   - Saves directly to the user's mobile image gallery (iOS Apple Photos / Android Gallery) and downloads folder.
+   - Downloads directly into the device's downloads / photo album with a single tap.
 
 8. **QR Code Functionality**:
    - Dynamic client-side QR Code generated from the deployed production URL (`https://yashpanchal089.github.io/kiranpopat/`).
