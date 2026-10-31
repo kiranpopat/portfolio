@@ -207,381 +207,41 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnDownloadQr) btnDownloadQr.addEventListener('click', downloadQRCodeImage);
 
   // --------------------------------------------------------------------------
-  // 5B. Download Complete Digital Visiting Card to Image Gallery (.png)
+  // 5B. Download Complete Digital Visiting Card Image (.jpg)
   // --------------------------------------------------------------------------
-  async function downloadVisitingCardImage() {
-    showToast('Preparing your Visiting Card image...');
+  async function downloadVisitingCardImage(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const cardPath = 'assets/visiting-card.jpg';
+    const fileName = 'Kiran_Hiralal_Popat_Visiting_Card.jpg';
 
     try {
-      const cardCanvas = document.createElement('canvas');
-      const W = 1200;
-      const H = 680;
-      cardCanvas.width = W;
-      cardCanvas.height = H;
-      const ctx = cardCanvas.getContext('2d');
+      const response = await fetch(cardPath);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
 
-      // 1. Background Gradient (Rich Deep Executive Navy)
-      const bgGrad = ctx.createLinearGradient(0, 0, W, H);
-      bgGrad.addColorStop(0, '#061325');
-      bgGrad.addColorStop(0.5, '#0a192f');
-      bgGrad.addColorStop(1, '#0e2444');
-      ctx.fillStyle = bgGrad;
-      ctx.fillRect(0, 0, W, H);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = fileName;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
 
-      // Subtle ambient gold glow top left & royal blue center
-      const goldAmbient = ctx.createRadialGradient(175, 185, 20, 175, 185, 260);
-      goldAmbient.addColorStop(0, 'rgba(212, 175, 55, 0.14)');
-      goldAmbient.addColorStop(1, 'transparent');
-      ctx.fillStyle = goldAmbient;
-      ctx.fillRect(0, 0, W, H);
-
-      const blueAmbient = ctx.createRadialGradient(600, 340, 50, 600, 340, 480);
-      blueAmbient.addColorStop(0, 'rgba(29, 78, 216, 0.09)');
-      blueAmbient.addColorStop(1, 'transparent');
-      ctx.fillStyle = blueAmbient;
-      ctx.fillRect(0, 0, W, H);
-
-      // 2. Dual Luxury Borders
-      // Outer Gold Border
-      ctx.strokeStyle = '#d4af37';
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      ctx.roundRect(16, 16, W - 32, H - 32, 24);
-      ctx.stroke();
-
-      // Inner hairline border
-      ctx.strokeStyle = 'rgba(212, 175, 55, 0.35)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.roundRect(26, 26, W - 52, H - 52, 18);
-      ctx.stroke();
-
-      // Corner geometric gold brackets
-      ctx.fillStyle = '#d4af37';
-      const cornerSize = 14;
-      ctx.fillRect(24, 24, cornerSize, 2.5);
-      ctx.fillRect(24, 24, 2.5, cornerSize);
-      ctx.fillRect(W - 24 - cornerSize, 24, cornerSize, 2.5);
-      ctx.fillRect(W - 26.5, 24, 2.5, cornerSize);
-      ctx.fillRect(24, H - 26.5, cornerSize, 2.5);
-      ctx.fillRect(24, H - 24 - cornerSize, 2.5, cornerSize);
-      ctx.fillRect(W - 24 - cornerSize, H - 26.5, cornerSize, 2.5);
-      ctx.fillRect(W - 26.5, H - 24 - cornerSize, 2.5, cornerSize);
-
-      // 3. Vertical Dividing Lines
-      ctx.strokeStyle = 'rgba(212, 175, 55, 0.25)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(330, 45);
-      ctx.lineTo(330, H - 45);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(860, 45);
-      ctx.lineTo(860, H - 45);
-      ctx.stroke();
-
-      // ======================================================================
-      // LEFT COLUMN: PROFILE PHOTO & ADVISOR BRANDING
-      // ======================================================================
-      const avatarCenterX = 175;
-      const avatarCenterY = 175;
-      const avatarRadius = 82;
-
-      // Photo Frame Glow
-      ctx.save();
-      ctx.shadowColor = 'rgba(212, 175, 55, 0.45)';
-      ctx.shadowBlur = 16;
-      ctx.beginPath();
-      ctx.arc(avatarCenterX, avatarCenterY, avatarRadius + 4, 0, Math.PI * 2);
-      ctx.strokeStyle = '#d4af37';
-      ctx.lineWidth = 4;
-      ctx.stroke();
-      ctx.restore();
-
-      // Profile Photo
-      const profileImgEl = document.getElementById('profilePhoto');
-      if (profileImgEl && profileImgEl.complete && profileImgEl.naturalWidth > 0) {
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(avatarCenterX, avatarCenterY, avatarRadius, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.clip();
-        ctx.drawImage(
-          profileImgEl,
-          avatarCenterX - avatarRadius,
-          avatarCenterY - avatarRadius,
-          avatarRadius * 2,
-          avatarRadius * 2
-        );
-        ctx.restore();
-      } else {
-        const pImg = new Image();
-        pImg.crossOrigin = 'anonymous';
-        pImg.src = 'assets/profile.jpg';
-        await new Promise(res => {
-          pImg.onload = () => {
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(avatarCenterX, avatarCenterY, avatarRadius, 0, Math.PI * 2);
-            ctx.closePath();
-            ctx.clip();
-            ctx.drawImage(
-              pImg,
-              avatarCenterX - avatarRadius,
-              avatarCenterY - avatarRadius,
-              avatarRadius * 2,
-              avatarRadius * 2
-            );
-            ctx.restore();
-            res();
-          };
-          pImg.onerror = () => res();
-        });
-      }
-
-      // Verified shield seal over bottom-right of avatar
-      const sealX = avatarCenterX + 54;
-      const sealY = avatarCenterY + 54;
-      ctx.fillStyle = '#1d4ed8';
-      ctx.beginPath();
-      ctx.arc(sealX, sealY, 17, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = '#d4af37';
-      ctx.lineWidth = 2.5;
-      ctx.stroke();
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 15px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('✓', sealX, sealY + 1);
-
-      // Name
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'alphabetic';
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 26px sans-serif';
-      ctx.fillText(CONFIG.advisorName, avatarCenterX, 305);
-
-      // Insurance Expert Badge Pill
-      ctx.fillStyle = 'rgba(212, 175, 55, 0.18)';
-      ctx.beginPath();
-      ctx.roundRect(avatarCenterX - 95, 325, 190, 28, 14);
-      ctx.fill();
-      ctx.strokeStyle = '#d4af37';
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-
-      ctx.fillStyle = '#fde68a';
-      ctx.font = 'bold 13.5px sans-serif';
-      ctx.fillText('★ INSURANCE EXPERT ★', avatarCenterX, 344);
-
-      // Brand Title
-      ctx.fillStyle = '#cbd5e1';
-      ctx.font = '600 15px sans-serif';
-      ctx.fillText(CONFIG.brandTitle, avatarCenterX, 385);
-
-      // Motto
-      ctx.fillStyle = '#fbbf24';
-      ctx.font = 'italic bold 20px serif';
-      ctx.fillText('"Your Sachha Advisor"', avatarCenterX, 440);
-
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '13px sans-serif';
-      ctx.fillText('Honest • Unbiased • Reliable', avatarCenterX, 468);
-
-      ctx.fillStyle = '#60a5fa';
-      ctx.font = '600 13px sans-serif';
-      ctx.fillText('19 Years of Advisory Experience', avatarCenterX, 502);
-
-      // ======================================================================
-      // CENTER COLUMN: SERVICES & ADVISORY FOCUS
-      // ======================================================================
-      const centerX = 360;
-
-      // Section Title
-      ctx.textAlign = 'left';
-      ctx.fillStyle = '#d4af37';
-      ctx.font = 'bold 15px sans-serif';
-      ctx.fillText('COMPREHENSIVE INSURANCE SERVICES', centerX, 80);
-
-      // Card 1: Life Insurance
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
-      ctx.beginPath();
-      ctx.roundRect(centerX, 105, 470, 95, 12);
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(212, 175, 55, 0.35)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      ctx.fillStyle = '#fef08a';
-      ctx.font = 'bold 17px sans-serif';
-      ctx.fillText('🛡️ Life Insurance – All Over the World', centerX + 18, 135);
-      ctx.fillStyle = '#cbd5e1';
-      ctx.font = '13.5px sans-serif';
-      ctx.fillText('• Pure Term Insurance (Family Protection)', centerX + 20, 160);
-      ctx.fillText('• Child Education & Marriage • Tax Saving • Retirement Plans', centerX + 20, 182);
-
-      // Card 2: Health Insurance
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
-      ctx.beginPath();
-      ctx.roundRect(centerX, 215, 470, 95, 12);
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(29, 78, 216, 0.45)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      ctx.fillStyle = '#93c5fd';
-      ctx.font = 'bold 17px sans-serif';
-      ctx.fillText('🏥 Health & Medical Insurance', centerX + 18, 245);
-      ctx.fillStyle = '#cbd5e1';
-      ctx.font = '13.5px sans-serif';
-      ctx.fillText('• Individual & Family Floater • Senior Citizen Healthcare', centerX + 20, 270);
-      ctx.fillText('• Super Top-Up • Portability • Critical Illness • Travel Cover', centerX + 20, 292);
-
-      // Card 3: General Insurance
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
-      ctx.beginPath();
-      ctx.roundRect(centerX, 325, 470, 95, 12);
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(212, 175, 55, 0.35)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      ctx.fillStyle = '#fde68a';
-      ctx.font = 'bold 17px sans-serif';
-      ctx.fillText('🚗 General & Motor Insurance', centerX + 18, 355);
-      ctx.fillStyle = '#cbd5e1';
-      ctx.font = '13.5px sans-serif';
-      ctx.fillText('• Two-Wheeler & Four-Wheeler Comprehensive Insurance', centerX + 20, 380);
-      ctx.fillText('• Zero-Depreciation Cover • Cashless Garages • Instant Claims', centerX + 20, 402);
-
-      // Signature Quote Box
-      const quoteBoxY = 445;
-      const quoteGrad = ctx.createLinearGradient(centerX, quoteBoxY, centerX + 470, quoteBoxY + 85);
-      quoteGrad.addColorStop(0, 'rgba(212, 175, 55, 0.15)');
-      quoteGrad.addColorStop(1, 'rgba(29, 78, 216, 0.15)');
-      ctx.fillStyle = quoteGrad;
-      ctx.beginPath();
-      ctx.roundRect(centerX, quoteBoxY, 470, 85, 12);
-      ctx.fill();
-      ctx.strokeStyle = '#d4af37';
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'italic bold 17px serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('"Doctor saves your life. I save your lifestyle."', centerX + 235, quoteBoxY + 36);
-      ctx.fillStyle = '#fde68a';
-      ctx.font = 'italic 14px serif';
-      ctx.fillText('Money when you are there. Money when you need it.', centerX + 235, quoteBoxY + 62);
-
-      // ======================================================================
-      // RIGHT COLUMN: SCANNABLE QR & DIRECT CONTACT CHANNELS
-      // ======================================================================
-      const rightX = 890;
-
-      // QR Code Card
-      const qrBoxX = rightX + 25;
-      const qrBoxY = 75;
-      const qrBoxW = 210;
-      const qrBoxH = 210;
-
-      ctx.fillStyle = '#ffffff';
-      ctx.beginPath();
-      ctx.roundRect(qrBoxX, qrBoxY, qrBoxW, qrBoxH, 14);
-      ctx.fill();
-
-      // Draw QR Code
-      const qrCanvas = qrContainer ? qrContainer.querySelector('canvas') : null;
-      if (qrCanvas) {
-        ctx.drawImage(qrCanvas, qrBoxX + 10, qrBoxY + 10, qrBoxW - 20, qrBoxH - 20);
-      }
-
-      ctx.textAlign = 'center';
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = 'bold 12.5px sans-serif';
-      ctx.fillText('Scan to Save Contact & Profile', qrBoxX + qrBoxW / 2, qrBoxY + qrBoxH + 24);
-
-      // Contact Details
-      const contactStartY = 350;
-      ctx.textAlign = 'left';
-
-      // 1. Phone / WhatsApp
-      ctx.fillStyle = '#4ade80';
-      ctx.font = 'bold 13px sans-serif';
-      ctx.fillText('CALL / WHATSAPP', rightX + 15, contactStartY);
-
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 21px sans-serif';
-      ctx.fillText(CONFIG.phoneDisplay, rightX + 15, contactStartY + 28);
-
-      // 2. Email
-      ctx.fillStyle = '#fde68a';
-      ctx.font = 'bold 13px sans-serif';
-      ctx.fillText('OFFICIAL EMAIL', rightX + 15, contactStartY + 75);
-
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 16px sans-serif';
-      ctx.fillText(CONFIG.email, rightX + 15, contactStartY + 100);
-
-      // 3. Digital Card URL
-      ctx.fillStyle = '#93c5fd';
-      ctx.font = 'bold 13px sans-serif';
-      ctx.fillText('DIGITAL PORTFOLIO', rightX + 15, contactStartY + 145);
-
-      ctx.fillStyle = '#60a5fa';
-      ctx.font = '600 13px monospace';
-      ctx.fillText('yashpanchal089.github.io/kiranpopat', rightX + 15, contactStartY + 168);
-
-      // 4. Save Visiting Card badge at bottom
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-      ctx.beginPath();
-      ctx.roundRect(rightX + 15, contactStartY + 195, 230, 36, 18);
-      ctx.fill();
-      ctx.fillStyle = '#cbd5e1';
-      ctx.font = '600 12px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('Digital Visiting Card • Save to Gallery', rightX + 130, contactStartY + 218);
-
-      // 5. Direct Instant Download of Visiting Card (.png)
-      const fileName = 'Kiran_Hiralal_Popat_Visiting_Card.png';
-
-      try {
-        const dataUrl = cardCanvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = fileName;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
+      setTimeout(() => {
         document.body.removeChild(link);
-        showToast('Visiting Card downloaded successfully!');
-      } catch (err) {
-        cardCanvas.toBlob((blob) => {
-          if (!blob) {
-            showToast('Unable to export visiting card image.');
-            return;
-          }
-          const blobUrl = URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = blobUrl;
-          link.download = fileName;
-          link.style.display = 'none';
-          document.body.appendChild(link);
-          link.click();
-          setTimeout(() => {
-            document.body.removeChild(link);
-            URL.revokeObjectURL(blobUrl);
-          }, 1500);
-          showToast('Visiting Card downloaded successfully!');
-        }, 'image/png');
-      }
+        URL.revokeObjectURL(blobUrl);
+      }, 1500);
 
+      showToast('Visiting Card downloaded successfully!');
     } catch (err) {
-      console.error('Error generating visiting card:', err);
-      showToast('Error saving visiting card image.');
+      const link = document.createElement('a');
+      link.href = cardPath;
+      link.download = fileName;
+      link.target = '_blank';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Visiting Card downloaded!');
     }
   }
 

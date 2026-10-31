@@ -665,6 +665,7 @@ img {
   color: #ffffff;
   font-size: 0.88rem;
   font-weight: 800;
+  text-decoration: none;
   box-shadow: 0 4px 14px rgba(10, 25, 47, 0.25);
   transition: var(--transition-fast);
   cursor: pointer;
@@ -1844,6 +1845,7 @@ img {
   color: #ffffff;
   font-size: 0.88rem;
   font-weight: 800;
+  text-decoration: none;
   box-shadow: 0 4px 14px rgba(10, 25, 47, 0.2);
   transition: var(--transition-fast);
   cursor: pointer;
@@ -2038,6 +2040,8 @@ img {
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--navy-brand);
+  text-decoration: none;
+  cursor: pointer;
   transition: var(--transition-fast);
 }
 
