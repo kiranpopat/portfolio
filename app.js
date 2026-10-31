@@ -56,10 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (displayProfileUrl) displayProfileUrl.textContent = activeUrl;
   if (modalCopyUrlInput) modalCopyUrlInput.value = activeUrl;
 
-  // Dynamic Current Year in Footer
-  const currentYearSpan = document.getElementById('currentYear');
-  if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
-
   // --------------------------------------------------------------------------
   // 3. Section-Wise Tab Navigation (Manasi Polyclinic Pattern)
   // --------------------------------------------------------------------------

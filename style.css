@@ -1782,74 +1782,8 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   10. FOOTER & STICKY BOTTOM BAR
+   10. STICKY BOTTOM BAR
    -------------------------------------------------------------------------- */
-.app-card-footer {
-  text-align: center;
-  padding: 20px 14px 10px 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.footer-crest-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-
-.footer-crest-img {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-sm);
-  background: #0a192f;
-  padding: 5px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-.footer-brand-title {
-  font-family: var(--font-brand);
-  font-size: 0.92rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: var(--navy-brand);
-}
-
-.footer-advisor-name {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-}
-
-.footer-tagline {
-  font-family: var(--font-serif);
-  font-size: 0.85rem;
-  color: #b45309;
-}
-
-.footer-credentials {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  font-size: 0.74rem;
-  color: var(--text-muted);
-}
-
-.footer-credentials span {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.footer-copyright {
-  font-size: 0.72rem;
-  color: var(--text-dim);
-}
-
-/* Sticky Bottom Bar */
 .sticky-bottom-bar {
   position: fixed;
   bottom: 0;
