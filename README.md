@@ -40,19 +40,25 @@ A modern, mobile-first, high-converting **Digital Business Card & Professional P
    - Email: `kiranp111@yahoo.in`
    - Configurable Facebook link
    - Save Contact (.vcf) button
+   - Save Visiting Card to Gallery (.png) button
 
-7. **QR Code Functionality**:
+7. **Save Visiting Card to Gallery (.png)**:
+   - High-resolution (1200 x 680) executive digital visiting card generated dynamically on HTML5 canvas.
+   - Includes Kiran Popat's portrait, designation, contact numbers, email, services summary, and scannable QR code.
+   - Saves directly to the user's mobile image gallery (iOS Apple Photos / Android Gallery) and downloads folder.
+
+8. **QR Code Functionality**:
    - Dynamic client-side QR Code generated from the deployed production URL (`https://yashpanchal089.github.io/kiranpopat/`).
    - High-error correction (`Level H`) works reliably on iPhone Camera and Android Google Lens.
    - **Download QR Code**: Generates high-resolution branded PNG image.
    - **Copy Profile Link**: One-click clipboard copy with toast feedback.
    - **Forward Profile via WhatsApp**: Input 10-digit number and forward card directly.
 
-8. **Save Contact (.vcf vCard 3.0)**:
+9. **Save Contact (.vcf vCard 3.0)**:
    - Downloads `Kiran_Hiralal_Popat.vcf` with Name, Organization, Phone, Email, and Website URL.
    - Seamlessly compatible with iPhone (iOS Add to Contacts) and Android Contacts app.
 
-9. **Mobile-First UX & Sticky Bottom Bar**:
+10. **Mobile-First UX & Sticky Bottom Bar**:
    - Fixed bottom action bar with Call, WhatsApp, Save Contact, and QR buttons.
    - Section-wise navigation tabs with smooth horizontal swiping.
    - Zero horizontal overflow.

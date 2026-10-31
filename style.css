@@ -608,23 +608,38 @@ img {
 .header-btn.btn-email .btn-icon-circle { background: #fffbeb; color: #b45309; }
 .header-btn.btn-facebook .btn-icon-circle { background: #eff6ff; color: #1877f2; }
 
-/* Primary Save Contact to Phonebook Hero CTA */
+/* Action Buttons Row (Save Contact & Visiting Card) */
+.hero-card-buttons-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 14px;
+}
+
+@media (min-width: 520px) {
+  .hero-card-buttons-wrap {
+    flex-direction: row;
+  }
+}
+
 .btn-primary-vcard-hero {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  flex: 1;
   width: 100%;
-  padding: 13px 18px;
-  margin-top: 14px;
+  padding: 12px 16px;
   background: var(--gold-gradient);
   border: 1px solid #d97706;
   border-radius: var(--radius-md);
   color: #ffffff;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 800;
   box-shadow: var(--shadow-gold);
   transition: var(--transition-fast);
+  cursor: pointer;
 }
 
 .btn-primary-vcard-hero:hover {
@@ -633,6 +648,36 @@ img {
 }
 
 .btn-primary-vcard-hero i {
+  font-size: 1.15rem;
+}
+
+.btn-download-visiting-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  width: 100%;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #0a192f 0%, #1e3a5f 100%);
+  border: 1.5px solid #d4af37;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(10, 25, 47, 0.25);
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-download-visiting-card:hover {
+  transform: translateY(-2px);
+  border-color: #f59e0b;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+}
+
+.btn-download-visiting-card i {
+  color: #fde68a;
   font-size: 1.15rem;
 }
 
@@ -1752,24 +1797,76 @@ img {
   line-height: 1.45;
 }
 
+.save-card-dual-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .save-card-dual-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 .btn-save-vcard-large {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 11px 22px;
+  padding: 11px 20px;
   background: var(--gold-gradient);
   border: 1px solid #d97706;
   border-radius: var(--radius-full);
   color: #ffffff;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 800;
   box-shadow: var(--shadow-gold);
   transition: var(--transition-fast);
+  cursor: pointer;
 }
 
 .btn-save-vcard-large:hover {
   transform: translateY(-2px);
+}
+
+.btn-save-card-large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, #0a192f 0%, #1e3a5f 100%);
+  border: 1.5px solid #d4af37;
+  border-radius: var(--radius-full);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(10, 25, 47, 0.2);
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-save-card-large:hover {
+  transform: translateY(-2px);
+  border-color: #f59e0b;
+}
+
+.btn-save-card-large i {
+  color: #fde68a;
+  font-size: 1.15rem;
+}
+
+.share-option-btn.gallery {
+  grid-column: 1 / -1;
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.share-option-btn.gallery i {
+  color: #d97706;
 }
 
 /* --------------------------------------------------------------------------
@@ -2119,10 +2216,22 @@ img {
     font-size: 0.72rem;
   }
 
-  .btn-primary-vcard-hero {
-    padding: 12px 14px;
-    font-size: 0.86rem;
+  .hero-card-buttons-wrap {
+    gap: 8px;
     margin-top: 12px;
+  }
+
+  .btn-primary-vcard-hero,
+  .btn-download-visiting-card {
+    padding: 11px 12px;
+    font-size: 0.84rem;
+  }
+
+  .btn-save-vcard-large,
+  .btn-save-card-large {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 0.84rem;
   }
 
   /* Tab Navigation Strip */

@@ -202,11 +202,17 @@
         </a>
       </div>
 
-      <!-- Primary Save Contact Button (Downloads .vcf) -->
-      <button type="button" class="btn-primary-vcard-hero" id="heroSaveContactBtn" title="Save Contact to Phonebook">
-        <i class="ri-user-add-fill"></i>
-        <span>Save Contact to Phonebook (.vcf)</span>
-      </button>
+      <!-- Primary Action Buttons (Save Contact & Save Visiting Card to Gallery) -->
+      <div class="hero-card-buttons-wrap">
+        <button type="button" class="btn-primary-vcard-hero" id="heroSaveContactBtn" title="Save Contact to Phonebook">
+          <i class="ri-user-add-fill"></i>
+          <span>Save Contact (.vcf)</span>
+        </button>
+        <button type="button" class="btn-download-visiting-card" id="heroDownloadCardBtn" title="Save Visiting Card to Image Gallery">
+          <i class="ri-image-2-fill"></i>
+          <span>Save Card to Gallery (.png)</span>
+        </button>
+      </div>
     </header>
 
     <!-- ========================================================
@@ -288,13 +294,17 @@
 
           <!-- QR Action Buttons -->
           <div class="qr-actions-row">
-            <button type="button" class="btn-qr-action primary" id="btnDownloadQrCode">
-              <i class="ri-download-2-line"></i>
-              <span>Download QR Code</span>
+            <button type="button" class="btn-qr-action primary" id="btnDownloadVisitingCard" title="Save Visiting Card to Image Gallery">
+              <i class="ri-image-2-fill"></i>
+              <span>Save Card to Gallery</span>
             </button>
-            <button type="button" class="btn-qr-action secondary" id="btnCopyProfileUrl">
+            <button type="button" class="btn-qr-action secondary" id="btnDownloadQrCode" title="Download QR Code">
+              <i class="ri-download-2-line"></i>
+              <span>Download QR</span>
+            </button>
+            <button type="button" class="btn-qr-action secondary" id="btnCopyProfileUrl" title="Copy Profile Link">
               <i class="ri-file-copy-line"></i>
-              <span>Copy Profile Link</span>
+              <span>Copy Link</span>
             </button>
           </div>
 
@@ -726,10 +736,16 @@
             <p>Download the official contact card (.vcf) with phone, email, WhatsApp, and website link directly into
               your Android or iPhone contacts.</p>
           </div>
-          <button type="button" class="btn-save-vcard-large" id="btnDownloadVcardSection">
-            <i class="ri-user-add-line"></i>
-            <span>Save Contact (.vcf)</span>
-          </button>
+          <div class="save-card-dual-actions">
+            <button type="button" class="btn-save-vcard-large" id="btnDownloadVcardSection" title="Save Contact to Phonebook">
+              <i class="ri-user-add-line"></i>
+              <span>Save Contact (.vcf)</span>
+            </button>
+            <button type="button" class="btn-save-card-large" id="btnDownloadCardSection" title="Save Visiting Card to Image Gallery">
+              <i class="ri-image-2-fill"></i>
+              <span>Save Visiting Card (.png)</span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -806,6 +822,12 @@
           <button type="button" class="share-option-btn native" id="modalShareNative">
             <i class="ri-smartphone-line"></i>
             <span>Device Share</span>
+          </button>
+
+          <!-- Save Card Image to Gallery -->
+          <button type="button" class="share-option-btn gallery full-span" id="modalSaveToGallery">
+            <i class="ri-image-2-fill"></i>
+            <span>Save Visiting Card to Gallery (.png)</span>
           </button>
         </div>
 
