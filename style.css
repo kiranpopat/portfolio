@@ -688,44 +688,41 @@ img {
 .card-tabs {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  gap: 5px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-full);
   padding: 5px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 10px;
   z-index: 50;
+  width: 100%;
 }
 
 [data-theme="dark"] .card-tabs {
   background: rgba(15, 35, 61, 0.92);
 }
 
-.card-tabs::-webkit-scrollbar {
-  display: none;
-}
-
 .tab-btn {
+  flex: 1 1 0;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 8px 14px;
+  padding: 9px 8px;
   border-radius: var(--radius-full);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-muted);
   white-space: nowrap;
   background: transparent;
   transition: var(--transition-fast);
-  flex-shrink: 0;
+  text-align: center;
 }
 
 .tab-btn i {
@@ -2068,18 +2065,20 @@ img {
   .card-tabs {
     top: 8px;
     padding: 4px;
-    gap: 4px;
+    gap: 3px;
   }
 
   .tab-btn {
-    padding: 7px 11px;
-    font-size: 0.76rem;
-    min-height: 38px;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 8px 4px;
+    font-size: 0.74rem;
+    min-height: 36px;
     gap: 4px;
   }
 
   .tab-btn i {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 
   /* QR Showcase Section */
@@ -2210,6 +2209,22 @@ img {
 
 /* Extra-narrow mobile screens (320px - 360px) */
 @media (max-width: 360px) {
+  .card-tabs {
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .tab-btn {
+    padding: 6px 2px;
+    font-size: 0.68rem;
+    min-height: 32px;
+    gap: 2px;
+  }
+
+  .tab-btn i {
+    font-size: 0.8rem;
+  }
+
   .advisor-name {
     font-size: 1.4rem;
   }
