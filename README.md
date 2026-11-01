@@ -25,24 +25,17 @@ A modern, mobile-first, high-converting **Digital Business Card & Professional P
    - **Tab 2: About**: Professional Insurance Expert background, tailored advice, and 3 advisory pillars.
    - **Tab 3: Life**: 5 Life Insurance services with the prominent *"Your Sachha Advisor."* highlight.
    - **Tab 4: Health**: 7 Healthcare policies with *"Doctor saves your life. I save your lifestyle."*
-   - **Tab 5: General**: Two-Wheeler & Four-Wheeler vehicle protection plans.
-   - **Tab 6: Contact**: Direct phone dialer, WhatsApp, official email, and Facebook.
-     7. Travel Insurance (Domestic & Overseas)
+   - **Tab 5: General**: Two-Wheeler & Four-Wheeler vehicle protection plans with direct WhatsApp inquiry buttons.
 
-5. **General Insurance**:
-   - Dedicated vehicle protection section with professional icons:
-     1. Two-Wheeler Insurance
-     2. Four-Wheeler Insurance (Zero Depreciation & Cashless Network)
-
-6. **Contact Section**:
+3. **Instant Direct Contact Options (Hero & Sticky Bar)**:
    - Direct Call: `+91 9820059982`
    - WhatsApp Chat: `9820059982`
    - Email: `kiranp111@yahoo.in`
    - Configurable Facebook link
    - Save Contact (.vcf) button
-   - Download Visiting Card (.png) button
+   - Sticky Bottom Action Bar with 1-tap thumb access.
 
-7. **Download Visiting Card (.png)**:
+4. **Download Visiting Card**:
    - One-click instant download of a high-resolution ($1200 \times 680\text{px}$) executive digital visiting card image.
    - Includes Kiran Popat's portrait, designation, contact numbers, email, services summary, and scannable QR code.
    - Downloads directly into the device's downloads / photo album with a single tap.

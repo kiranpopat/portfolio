@@ -46,9 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   // Facebook links
   const headerFbBtn = document.getElementById('headerFacebookBtn');
-  const contactFbTile = document.getElementById('contactFacebookTile');
   if (headerFbBtn) headerFbBtn.href = CONFIG.facebookUrl;
-  if (contactFbTile) contactFbTile.href = CONFIG.facebookUrl;
 
   // Display URL elements
   const displayProfileUrl = document.getElementById('displayProfileUrl');
@@ -248,12 +246,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Bind all Visiting Card triggers
   const heroDownloadCardBtn = document.getElementById('heroDownloadCardBtn');
   const btnDownloadVisitingCard = document.getElementById('btnDownloadVisitingCard');
-  const btnDownloadCardSection = document.getElementById('btnDownloadCardSection');
   const modalSaveToGallery = document.getElementById('modalSaveToGallery');
 
   if (heroDownloadCardBtn) heroDownloadCardBtn.addEventListener('click', downloadVisitingCardImage);
   if (btnDownloadVisitingCard) btnDownloadVisitingCard.addEventListener('click', downloadVisitingCardImage);
-  if (btnDownloadCardSection) btnDownloadCardSection.addEventListener('click', downloadVisitingCardImage);
   if (modalSaveToGallery) {
     modalSaveToGallery.addEventListener('click', () => {
       closeShareModalPopup();
@@ -302,11 +298,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Bind all Save Contact triggers
   const heroSaveBtn = document.getElementById('heroSaveContactBtn');
-  const sectionSaveBtn = document.getElementById('btnDownloadVcardSection');
   const bottomSaveBtn = document.getElementById('bottomSaveBtn');
 
   if (heroSaveBtn) heroSaveBtn.addEventListener('click', downloadVCard);
-  if (sectionSaveBtn) sectionSaveBtn.addEventListener('click', downloadVCard);
   if (bottomSaveBtn) bottomSaveBtn.addEventListener('click', downloadVCard);
 
   // --------------------------------------------------------------------------
