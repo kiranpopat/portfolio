@@ -95,29 +95,6 @@
   <!-- Main Application Wrapper (Mobile Card & Desktop Viewport) -->
   <div class="card-viewport" id="cardViewport">
 
-    <!-- Top Smart Status Bar -->
-    <header class="top-smart-bar">
-      <!-- Verified Advisor Status Badge -->
-      <div class="verified-status-badge" title="Verified Professional Insurance Advisor">
-        <span class="live-pulse-dot"></span>
-        <i class="ri-shield-check-fill"></i>
-        <span>Verified Advisor</span>
-      </div>
-
-      <!-- Quick Action Pill Top Right -->
-      <div class="top-nav-actions">
-        <button class="top-action-btn" id="btnThemeToggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
-          <i class="ri-moon-line" id="themeToggleIcon"></i>
-          <span class="btn-tooltip">Theme</span>
-        </button>
-        <button class="top-action-btn" id="btnShareModalTrigger" title="Share Digital Profile"
-          aria-label="Share Digital Profile">
-          <i class="ri-share-forward-fill"></i>
-          <span class="btn-tooltip">Share</span>
-        </button>
-      </div>
-    </header>
-
     <!-- ========================================================
          HERO / PROFILE HEADER CARD
          ======================================================== -->
@@ -212,6 +189,18 @@
           <i class="ri-download-2-fill"></i>
           <span>Download Visiting Card</span>
         </a>
+      </div>
+
+      <!-- Quick Utilities: Share Profile & Theme Toggle -->
+      <div class="hero-utility-row">
+        <button type="button" class="btn-utility-pill" id="btnShareModalTrigger" title="Share Digital Profile">
+          <i class="ri-share-forward-fill"></i>
+          <span>Share Profile</span>
+        </button>
+        <button type="button" class="btn-utility-pill" id="btnThemeToggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+          <i class="ri-moon-line" id="themeToggleIcon"></i>
+          <span id="themeToggleText">Dark Mode</span>
+        </button>
       </div>
     </header>
 
@@ -646,6 +635,18 @@
       </section>
 
     </main>
+
+    <!-- Bottom Quick Utility Controls (Share Profile & Theme Mode) -->
+    <div class="bottom-utility-controls">
+      <button type="button" class="btn-utility-pill" id="btnShareModalTriggerBottom" title="Share Digital Profile">
+        <i class="ri-share-forward-fill"></i>
+        <span>Share Profile</span>
+      </button>
+      <button type="button" class="btn-utility-pill" id="btnThemeToggleBottom" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+        <i class="ri-moon-line" id="themeToggleIconBottom"></i>
+        <span id="themeToggleTextBottom">Dark Mode</span>
+      </button>
+    </div>
 
     <!-- ========================================================
          STICKY BOTTOM ACTION BAR (Mobile Optimized)

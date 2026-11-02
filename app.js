@@ -347,7 +347,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   const shareModal = document.getElementById('shareModal');
   const closeShareModal = document.getElementById('closeShareModal');
-  const btnShareModalTrigger = document.getElementById('btnShareModalTrigger');
+  const shareModalTriggers = [
+    document.getElementById('btnShareModalTrigger'),
+    document.getElementById('btnShareModalTriggerBottom')
+  ].filter(Boolean);
 
   function openShareModal() {
     if (shareModal) {
@@ -363,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if (btnShareModalTrigger) btnShareModalTrigger.addEventListener('click', openShareModal);
+  shareModalTriggers.forEach(btn => btn.addEventListener('click', openShareModal));
   if (closeShareModal) closeShareModal.addEventListener('click', closeShareModalPopup);
   if (shareModal) {
     shareModal.addEventListener('click', (e) => {
@@ -464,18 +467,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   // 10. Theme Toggle (Lighter Theme by default with optional Dark Mode)
   // --------------------------------------------------------------------------
-  const btnThemeToggle = document.getElementById('btnThemeToggle');
-  const themeToggleIcon = document.getElementById('themeToggleIcon');
+  const themeToggleBtns = [
+    document.getElementById('btnThemeToggle'),
+    document.getElementById('btnThemeToggleBottom')
+  ].filter(Boolean);
+
+  const themeToggleIcons = [
+    document.getElementById('themeToggleIcon'),
+    document.getElementById('themeToggleIconBottom')
+  ].filter(Boolean);
+
+  const themeToggleTexts = [
+    document.getElementById('themeToggleText'),
+    document.getElementById('themeToggleTextBottom')
+  ].filter(Boolean);
+
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
-      if (themeToggleIcon) themeToggleIcon.className = 'ri-sun-line';
+      themeToggleIcons.forEach(icon => { icon.className = 'ri-sun-line'; });
+      themeToggleTexts.forEach(txt => { txt.textContent = 'Light Mode'; });
       if (metaThemeColor) metaThemeColor.setAttribute('content', '#0a192f');
     } else {
       document.documentElement.removeAttribute('data-theme');
-      if (themeToggleIcon) themeToggleIcon.className = 'ri-moon-line';
+      themeToggleIcons.forEach(icon => { icon.className = 'ri-moon-line'; });
+      themeToggleTexts.forEach(txt => { txt.textContent = 'Dark Mode'; });
       if (metaThemeColor) metaThemeColor.setAttribute('content', '#f8fafc');
     }
   }
@@ -483,8 +501,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('kiran_insurance_theme') || 'light';
   applyTheme(savedTheme);
 
-  if (btnThemeToggle) {
-    btnThemeToggle.addEventListener('click', () => {
+  themeToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       applyTheme(newTheme);
@@ -493,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (e) {}
       showToast(newTheme === 'dark' ? 'Dark theme activated' : 'Lighter executive theme activated');
     });
-  }
+  });
 
   // --------------------------------------------------------------------------
   // 12. Toast Notification Helper

@@ -228,91 +228,74 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   4. Top Smart Status Bar
+   4. Quick Utility Controls (Share Profile & Light/Dark Theme)
    -------------------------------------------------------------------------- */
-.top-smart-bar {
+.hero-utility-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-card);
-  box-shadow: var(--shadow-sm);
+  gap: 10px;
+  width: 100%;
+  margin-top: 2px;
 }
 
-[data-theme="dark"] .top-smart-bar {
-  background: rgba(15, 35, 61, 0.8);
-}
-
-.verified-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #15803d;
-}
-
-[data-theme="dark"] .verified-status-badge {
-  background: rgba(22, 163, 74, 0.15);
-  border-color: rgba(34, 197, 94, 0.35);
-  color: #4ade80;
-}
-
-.live-pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #16a34a;
-  box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
-  animation: statusPulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
-}
-
-@keyframes statusPulse {
-  0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
-  70% { box-shadow: 0 0 0 7px rgba(22, 163, 74, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-}
-
-.top-nav-actions {
+.bottom-utility-controls {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 0 2px 0;
 }
 
-.top-action-btn {
-  position: relative;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid var(--border-card);
-  color: var(--text-secondary);
+.btn-utility-pill {
+  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-full);
+  color: var(--navy-brand);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition-fast);
 }
 
-[data-theme="dark"] .top-action-btn {
-  background: rgba(255, 255, 255, 0.08);
+[data-theme="dark"] .btn-utility-pill {
+  background: rgba(15, 35, 61, 0.85);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
 }
 
-.top-action-btn:hover {
+.btn-utility-pill:hover {
+  border-color: var(--royal-blue-primary);
   background: #f1f5f9;
-  color: var(--royal-blue-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.12);
 }
 
-.btn-tooltip {
-  display: none;
+[data-theme="dark"] .btn-utility-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #60a5fa;
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15);
+}
+
+.btn-utility-pill i {
+  font-size: 1.05rem;
+  color: var(--royal-blue-primary);
+  transition: transform var(--transition-fast);
+}
+
+[data-theme="dark"] .btn-utility-pill i {
+  color: #60a5fa;
+}
+
+.btn-utility-pill:hover i {
+  transform: scale(1.1);
 }
 
 /* --------------------------------------------------------------------------
@@ -1959,18 +1942,18 @@ img {
     gap: 12px;
   }
 
-  .top-smart-bar {
-    padding: 5px 10px;
+  .hero-utility-row,
+  .bottom-utility-controls {
+    gap: 8px;
   }
 
-  .verified-status-badge {
-    padding: 3px 8px;
-    font-size: 0.68rem;
+  .btn-utility-pill {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+    gap: 6px;
   }
 
-  .top-action-btn {
-    width: 32px;
-    height: 32px;
+  .btn-utility-pill i {
     font-size: 0.95rem;
   }
 
@@ -2209,6 +2192,21 @@ img {
 
 /* Extra-narrow mobile screens (320px - 360px) */
 @media (max-width: 360px) {
+  .hero-utility-row,
+  .bottom-utility-controls {
+    gap: 6px;
+  }
+
+  .btn-utility-pill {
+    padding: 7px 6px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+
+  .btn-utility-pill i {
+    font-size: 0.85rem;
+  }
+
   .card-tabs {
     padding: 3px;
     gap: 2px;
