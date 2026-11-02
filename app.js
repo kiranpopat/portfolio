@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     facebookUrl: "https://www.facebook.com/kiran.popat.insurance",
     
     // Default production / deployed URL (Used when previewing on localhost or file://)
-    productionUrl: "https://yashpanchal089.github.io/kiranpopat/",
+    productionUrl: "https://kiranpopat.github.io/portfolio/",
     
     // Resolve current active URL (Detects GitHub Pages / custom domain automatically)
     getActiveUrl: function() {

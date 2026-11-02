@@ -41,7 +41,7 @@ A modern, mobile-first, high-converting **Digital Business Card & Professional P
    - Downloads directly into the device's downloads / photo album with a single tap.
 
 8. **QR Code Functionality**:
-   - Dynamic client-side QR Code generated from the deployed production URL (`https://yashpanchal089.github.io/kiranpopat/`).
+   - Dynamic client-side QR Code generated from the deployed production URL (`https://kiranpopat.github.io/portfolio/`).
    - High-error correction (`Level H`) works reliably on iPhone Camera and Android Google Lens.
    - **Download QR Code**: Generates high-resolution branded PNG image.
    - **Copy Profile Link**: One-click clipboard copy with toast feedback.
@@ -73,7 +73,7 @@ const CONFIG = {
   whatsappClean: "919820059982",
   email: "kiranp111@yahoo.in",
   facebookUrl: "https://www.facebook.com/kiran.popat.insurance", // <-- Update your Facebook URL here
-  productionUrl: "https://yashpanchal089.github.io/kiranpopat/",   // <-- Deployed GitHub Pages URL
+  productionUrl: "https://kiranpopat.github.io/portfolio/",       // <-- Deployed GitHub Pages URL
 };
 ```
 
@@ -81,12 +81,12 @@ const CONFIG = {
 
 ## 🌐 Deployed on GitHub Pages
 
-- **Repository**: [https://github.com/yashpanchal089/kiranpopat](https://github.com/yashpanchal089/kiranpopat)
-- **Live URL**: [https://yashpanchal089.github.io/kiranpopat/](https://yashpanchal089.github.io/kiranpopat/)
+- **Repository**: [https://github.com/kiranpopat/portfolio](https://github.com/kiranpopat/portfolio)
+- **Live URL**: [https://kiranpopat.github.io/portfolio/](https://kiranpopat.github.io/portfolio/)
 
 ### Enabling GitHub Pages:
 1. In your GitHub repository: go to **Settings** > **Pages**.
 2. Under **Build and deployment**, set **Source** to `Deploy from a branch`.
 3. Choose branch: `main` and folder: `/ (root)`, then click **Save**.
-4. GitHub Pages will build and publish your website automatically at [https://yashpanchal089.github.io/kiranpopat/](https://yashpanchal089.github.io/kiranpopat/).
+4. GitHub Pages will build and publish your website automatically at [https://kiranpopat.github.io/portfolio/](https://kiranpopat.github.io/portfolio/).
 
