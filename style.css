@@ -1432,36 +1432,27 @@ img {
 }
 
 .health-services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-@media (min-width: 480px) {
-  .health-services-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .health-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
-  padding: 12px 14px;
+  padding: 14px 16px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   box-shadow: var(--shadow-sm);
   transition: var(--transition-fast);
 }
 
 .health-card:hover {
   border-color: var(--royal-blue-primary);
-  transform: translateY(-2px);
-}
-
-.health-card.full-span-card {
-  grid-column: 1 / -1;
+  transform: translateX(3px);
 }
 
 .h-card-icon {
