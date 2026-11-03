@@ -238,15 +238,6 @@ img {
   margin-top: 2px;
 }
 
-.bottom-utility-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 8px 0 2px 0;
-}
-
 .btn-utility-pill {
   flex: 1;
   display: inline-flex;
@@ -1942,8 +1933,7 @@ img {
     gap: 12px;
   }
 
-  .hero-utility-row,
-  .bottom-utility-controls {
+  .hero-utility-row {
     gap: 8px;
   }
 
@@ -2192,8 +2182,7 @@ img {
 
 /* Extra-narrow mobile screens (320px - 360px) */
 @media (max-width: 360px) {
-  .hero-utility-row,
-  .bottom-utility-controls {
+  .hero-utility-row {
     gap: 6px;
   }
 
